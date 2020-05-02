@@ -5,9 +5,12 @@ var scheduleList = document.querySelector(".container");
 
 var time = moment().format('LLLL');
 
-// Time now in military 24 hr time
-var timeNow = moment().format('kk');
-console.log(timeNow);
+// Time now in 24 hr format
+var timeNowin24 = moment().format('k');
+// Time now in 12 hr format
+var timeNowin12 = moment().format('h');
+console.log(timeNowin24);
+console.log(timeNowin12);
 
 $(timeStamp).text(time);
 
@@ -28,6 +31,14 @@ timeEvents = {
 
 };
 
+// conditional for the hours // put in a function later
+if (timeNowin24 <= 12) {
+    var period = "AM";
+}
+else {
+    var period = "PM";
+}
+
 // Build list of schedule slots
 timeSlot = ["7AM ", "8AM ", "9AM ", "10AM ", "11AM ", "12PM ", "1PM ", "2PM ", "3PM ", "4PM ", "5PM "]
 for (var i = 0; i < timeSlot.length; i++) {
@@ -37,15 +48,11 @@ for (var i = 0; i < timeSlot.length; i++) {
     $(li).text(scheduleSlot);
     $(scheduleList).append(li);
 
-    // conditional for the hours
-    if (timeNow <= 12) {
-        var period = "AM";
-    }
-    else {
-        var period = "PM";
-    }
+    if (timeSlot === timeNowin12) {
+        // make the list green?
 
-}
+    }
+};
 console.log(scheduleList)
 console.log(period);
 
