@@ -28,22 +28,14 @@ timeEvents = {
 
 };
 
+// Build list of schedule slots
 timeSlot = ["7AM ", "8AM ", "9AM ", "10AM ", "11AM ", "12PM ", "1PM ", "2PM ", "3PM ", "4PM ", "5PM "]
-
 for (var i = 0; i < timeSlot.length; i++) {
 
-    scheduleSlot = timeSlot[i];
-
-    $(scheduleList).append("<li>");
-    $("li").text(scheduleSlot);
-    // 
-    // $(scheduleList).text(scheduleSlot)
-
-
-
-    // start at 7am and append each hour
-
-    // $("li").text(hour);
+    var scheduleSlot = timeSlot[i];
+    var li = $("<li>");
+    $(li).text(scheduleSlot);
+    $(scheduleList).append(li);
 
     // conditional for the hours
     if (timeNow <= 12) {
