@@ -40,7 +40,7 @@ timeEvents = {
 
 
 // Build list of schedule slots
-timeSlot = [7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5]
+timeSlot = ["7AM", "8AM ", "9AM", "10AM", "11AM", "12PM", "1PM ", "2PM ", "3PM ", "4PM ", "5PM "]
 timeLock = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
 
 for (var i = 0; i < timeSlot.length; i++) {
@@ -48,8 +48,16 @@ for (var i = 0; i < timeSlot.length; i++) {
     var scheduleSlot = timeSlot[i];
     var scheduleLock = timeLock[i];
     var li = $("<li>");
+    var save = $("<button>");
+
+    // When clicked then it becomes an input
+    var task = $("<input>");
+
     $(li).attr("class", "list-group-item list-group-item-dark")
     $(li).attr("id", scheduleLock);
+
+    $(li).text(scheduleSlot);
+
     if (scheduleLock === timeNowin24) {
         $(li).attr("class", "list-group-item list-group-item-success")
     }
@@ -57,8 +65,13 @@ for (var i = 0; i < timeSlot.length; i++) {
         $(li).attr("class", "list-group-item list-group-item-warning")
     };
 
-    $(li).text(scheduleSlot);
-    $(".container").append(li);
+    $(save).attr("class", "btn btn-info");
+    $(save).text("SAVE");
+
+
+    $("#schedule").append(li);
+    $(li).append(task);
+    $(li).append(save);
 
 
 
