@@ -21,24 +21,6 @@ console.log(timeNowin12);
 $("#currentDay").text(time);
 
 
-// Add a list with a time block from 8am to 5pm
-timeEvents = {
-
-    eight: "",
-    nine: "",
-    ten: "",
-    eleven: "",
-    twelve: "",
-    one: "",
-    two: "",
-    three: "",
-    four: "",
-    five: "",
-
-};
-
-
-
 // Build list of schedule slots
 timeSlot = ["7AM", "8AM ", "9AM", "10AM", "11AM", "12PM", "1PM ", "2PM ", "3PM ", "4PM ", "5PM "]
 timeLock = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
@@ -51,10 +33,11 @@ for (var i = 0; i < timeSlot.length; i++) {
     var save = $("<button>");
 
     // When clicked then it becomes an input
-    var task = $("<input>");
+    var enterTask = $("<input>");
+    $(enterTask).attr("class", "form-control").attr("id", scheduleLock);
 
-    $(li).attr("class", "list-group-item list-group-item-dark")
-    $(li).attr("id", scheduleLock);
+    $(li).attr("class", "list-group-item list-group-item-dark").attr("id", scheduleLock)
+    // $(li).attr("id", scheduleLock).attr("placeholder", "Recipient's username");
 
     $(li).text(scheduleSlot);
 
@@ -65,13 +48,11 @@ for (var i = 0; i < timeSlot.length; i++) {
         $(li).attr("class", "list-group-item list-group-item-warning")
     };
 
-    $(save).attr("class", "btn btn-info");
-    $(save).text("SAVE");
-
+    $(save).attr("class", "btn btn-info").text("SAVE");
 
     $("#schedule").append(li);
-    $(li).append(task);
-    $(li).append(save);
+    $(li).append(enterTask).append(save);
+
 
 
 
