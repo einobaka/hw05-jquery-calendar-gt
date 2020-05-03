@@ -1,5 +1,3 @@
-var timeStamp = document.querySelector("#currentDay");
-var scheduleList = document.querySelector(".container");
 
 // console.log(timeStamp);
 
@@ -12,7 +10,7 @@ var timeNowin12 = moment().format('h');
 console.log(timeNowin24);
 console.log(timeNowin12);
 
-$(timeStamp).text(time);
+$("#currentDay").text(time);
 
 
 // Add a list with a time block from 8am to 5pm
@@ -41,18 +39,24 @@ else {
 
 // Build list of schedule slots
 timeSlot = ["7AM ", "8AM ", "9AM ", "10AM ", "11AM ", "12PM ", "1PM ", "2PM ", "3PM ", "4PM ", "5PM "]
+
 for (var i = 0; i < timeSlot.length; i++) {
 
+
+    var setID = "#id=" + timeSlot[i];
     var scheduleSlot = timeSlot[i];
     var li = $("<li>");
+    console.log(scheduleSlot);
+
     $(li).text(scheduleSlot);
-    $(scheduleList).append(li);
+    $(".container").append(li);
 
-    if (timeSlot === timeNowin12) {
+
+    if ($("id") === timeNowin12) {
         // make the list green?
-
+        $(".time").attr("class", "alert alert-success")
     }
 };
-console.log(scheduleList)
-console.log(period);
+// console.log($(".container"))
+// console.log(period);
 
