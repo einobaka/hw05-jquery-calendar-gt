@@ -33,33 +33,32 @@ for (var i = 0; i < timeSlot.length; i++) {
     var save = $("<button>");
 
     // When clicked then it becomes an input
-    var enterTask = $("<input>");
-    $(enterTask).attr("class", "form-control").attr("id", scheduleLock);
+    // var enterTask = $("<input>");
+    // $(enterTask).attr("class", "form-control").attr("id", scheduleLock).attr("placeholder", "What is the task?");
+    // $(save).attr("class", "btn btn-info").text("SAVE");
 
-    $(li).attr("class", "list-group-item list-group-item-dark").attr("id", scheduleLock)
-    // $(li).attr("id", scheduleLock).attr("placeholder", "Recipient's username");
-
+    // List attributes
+    $(li).attr("class", "text-left list-group-item list-group-item-dark").attr("id", scheduleLock)
     $(li).text(scheduleSlot);
 
+
     if (scheduleLock === timeNowin24) {
-        $(li).attr("class", "list-group-item list-group-item-success")
+        $(li).attr("class", "text-left list-group-item list-group-item-success")
     }
     else if (scheduleLock > timeNowin24) {
-        $(li).attr("class", "list-group-item list-group-item-warning")
+        $(li).attr("class", "text-left list-group-item list-group-item-warning")
     };
 
-    $(save).attr("class", "btn btn-info").text("SAVE");
+    // hide and appear only when task is clicked?
 
     $("#schedule").append(li);
-    $(li).append(enterTask).append(save);
-
-
-
+    // $(li).append(enterTask).append(save);
 
     // if ($("id") === timeNowin12) {
     //     // make the list green?
     //     $(".time").attr("class", "alert alert-success")
     // }
+
 };
 console.log(scheduleSlot);
 // console.log($(".container"))
