@@ -11,10 +11,10 @@ else {
 var time = moment().format('LLLL');
 
 // Time now in 24 hr format
-var timeNowin24 = moment().format('k');
+// var timeNowin24 = moment().format('k');
 // Time now in 12 hr format
-// var timeNowin12 = moment().format('h');
-var timeNowin12 = 7;
+var timeNowin12 = moment().format('h');
+var timeNowin24 = 9;
 console.log(timeNowin24);
 console.log(timeNowin12);
 
@@ -41,17 +41,19 @@ timeEvents = {
 
 // Build list of schedule slots
 timeSlot = [7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5]
+timeLock = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
 
 for (var i = 0; i < timeSlot.length; i++) {
 
     var scheduleSlot = timeSlot[i];
+    var scheduleLock = timeLock[i];
     var li = $("<li>");
     $(li).attr("class", "list-group-item list-group-item-dark")
-    $(li).attr("id", scheduleSlot);
-    if (scheduleSlot === timeNowin12) {
+    $(li).attr("id", scheduleLock);
+    if (scheduleLock === timeNowin24) {
         $(li).attr("class", "list-group-item list-group-item-success")
     }
-    else if (scheduleSlot > timeNowin12) {
+    else if (scheduleLock > timeNowin24) {
         $(li).attr("class", "list-group-item list-group-item-warning")
     };
 
