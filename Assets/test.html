@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Scripts</title>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -15,104 +20,138 @@
         }
     </style>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="../script.js"></script>
+
 </head>
+
+<header class="jumbotron">
+    <h1 class="display-3">Work Day Scheduler</h1>
+    <p class="lead">A simple calendar app for scheduling your work day</p>
+    <p id="currentDay" class="lead"></p>
+</header>
 
 <body class="container">
 
     <div class="input-group">
         <div class="input-group-prepend">
-            <span class="input-group-text" id="">First and last name</span>
-          </div>
-        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button">Button</button>
+            <span class="input-group-text" id="">7AM</span>
         </div>
-      </div>
 
-    <!-- 
-    <div id="buttons-view"></div>
+        <input type="text" class="form-control" placeholder="insert text here" aria-label="7AM TASK"
+            aria-describedby="basic-addon2" id="list">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">SAVE</button>
+        </div>
+    </div>
 
-    <form id="movie-form">
-        <label for="movie-input">Add a Movie, Yo!</label>
-        <input type="text" id="movie-input"><br>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="">8AM</span>
+        </div>
 
-        
-        <input id="add-movie" type="submit" value="Add a Movie, Yo!">
-    </form> -->
+        <input type="text" class="form-control" placeholder="insert text here" aria-label="8 AM TASK"
+            aria-describedby="basic-addon2" id="list">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">SAVE</button>
+        </div>
+    </div>
 
-    <!-- <div class="container">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">TIME</th>
-                    <th scope="col">TASK</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row" id="8" class="fill">8AM</th>
-                    <td>TASK</td>
-                    <td>SAVE</td>
-                </tr>
-                <tr>
-                    <th scope="row" id="9" class="fill">9AM</th>
-                    <td>TASK</td>
-                    <td>SAVE</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="fill">10AM</th>
-                    <td>TASK</td>
-                    <td>SAVE</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="fill">11AM</th>
-                    <td>TASK</td>
-                    <td>SAVE</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="fill">12PM</th>
-                    <td>TASK</td>
-                    <td>SAVE</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="fill">1PM</th>
-                    <td>TASK</td>
-                    <td>SAVE</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="fill">2PM</th>
-                    <td>TASK</td>
-                    <td>SAVE</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="fill">3PM</th>
-                    <td>TASK</td>
-                    <td>SAVE</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="fill">4PM</th>
-                    <td>TASK</td>
-                    <td>SAVE</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="fill">5PM</th>
-                    <td>TASK</td>
-                    <td>SAVE</td>
-                </tr>
 
-            </tbody>
-        </table>
-    </div> -->
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="">9AM</span>
+        </div>
+
+        <input type="text" class="form-control" placeholder="insert text here" aria-label="9 AM TASK"
+            aria-describedby="basic-addon2" id="list">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">SAVE</button>
+        </div>
+    </div>
+
+
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="">10AM</span>
+        </div>
+
+        <input type="text" class="form-control" placeholder="insert text here" aria-label="10 AM TASK"
+            aria-describedby="basic-addon2" id="list">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">SAVE</button>
+        </div>
+    </div>
+
+
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="">11AM</span>
+        </div>
+
+        <input type="text" class="form-control" placeholder="insert text here" aria-label="11 AM TASK"
+            aria-describedby="basic-addon2" id="list">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">SAVE</button>
+        </div>
+    </div>
 
     <script>
+
+        if (timeNowin24 <= 12) {
+            var period = "AM";
+        }
+        else {
+            var period = "PM";
+        }
+
+        // The current day and time
+        var time = moment().format('LLLL');
+        $("#currentDay").text(time);
+
+        // Time now in 12 hr format
+        var timeNowin12 = moment().format('h');
+
+        // Time now in 24 hr format
+        var timeNowin24 = moment().format('k');
+
+        // Test variable for when real time is not in sync to demo the list color coordination
+        // var timeNowin24 = 9;
+
+        // List of schedule slots
+        timeSlot = ["7AM", "8AM ", "9AM", "10AM", "11AM", "12PM", "1PM ", "2PM ", "3PM ", "4PM ", "5PM "]
+        timeLock = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+
+        for (var i = 0; i < timeSlot.length; i++) {
+
+            var scheduleSlot = timeSlot[i];
+            var scheduleLock = timeLock[i];
+            //     var li = $("<li>");
+            //     var divCol = $("<div>");
+            //     var divColNext = $("<span>");
+
+            //     // List attributes
+            $("#list").attr("class", "form-control alert-primary border border-dark").attr("id", scheduleLock)
+            //     $(li).append(divCol);
+            //     $(divCol).attr("class", "col-sm").text(scheduleSlot).attr("id", scheduleSlot);
+            //     // $(li).append(input).append(save);
+
+            if (scheduleLock == timeNowin24) {
+                $("#list").attr("class", "form-control alert-success border border-dark")
+            }
+            //     else if (scheduleLock > timeNowin24) {
+            //         $(li).attr("class", "row text-left list-group-item list-group-item-action list-group-item-warning border border-dark")
+            //     };
+            //     $("#schedule").append(li);
+
+        };
 
 
 
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="script.js"></script>
+
 
 </body>
 
