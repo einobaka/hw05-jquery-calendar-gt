@@ -48,32 +48,39 @@ for (var i = 0; i < timeSlot.length; i++) {
 };
 
 // Variables for the button inputs
-var userInput = "";
-var gather = $("<form>").attr("id", userInput);
-var input = $("<input>").attr("id", "task").attr("placeholder", "What is your task?").attr("type", "text").attr("value", ""); // .attr("class", "input-group")
-var save = $("<input>").attr("id", "save").attr("type", "submit");
-$(save).text("SAVE");
+
+var gather = $("<form>").attr("id", "notsure");
+var userInput = $("<input>").attr("id", "theTask").attr("placeholder", "What is your task?").attr("type", "text");
+var save = $("<input>").attr("id", "save").attr("type", "submit").attr("value", "SAVE");
+
+function showTask(){
+    localStorage.setItem("userTask", JSON.stringify(taskValue));
+};
 
 
 $("li").on("click", function (e) {
     e.preventDefault();
     // console.log(e);
+
     if (e.target.matches(".list-group-item")) {
 
         $(this).append(divColNext);
         $(divColNext).attr("class", "col-sm ")
-        $(divColNext).append(gather).append(input).append(save);
+        $(divColNext).append(gather)
+        $(gather).append(userInput).append(save);
     }
-    else if (e.target.matches("#save")) {
-        console.log(userInput);
+    if (e.target.matches("#save")) {
+        var taskValue = $("#theTask").val().trim();
+        console.log(taskValue);
+
         //     $(input).hide();
         //     $(save).hide();
-        //     location.reload();
+       
     };
 
 });
 
-console.log(userInput);
+
 
 // Testing logs
 // console.log(timeNowin24);
