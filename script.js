@@ -1,11 +1,3 @@
-
-if (timeNowin24 <= 12) {
-    var period = "AM";
-}
-else {
-    var period = "PM";
-}
-
 // The current day and time
 var time = moment().format('LLLL');
 $("#currentDay").text(time);
@@ -20,11 +12,12 @@ var timeNowin24 = moment().format('k');
 // Test variable for when real time is not in sync to demo the list color coordination
 // var timeNowin24 = 11;
 
-// // List of schedule slots
+// Array of schedule slots to be used for IDs
 timeSlot = ["07 AM", "08 AM ", "09 AM", "10 AM", "11 AM", "12 PM", "01 PM", "02 PM", "03 PM", "04 PM", "05 PM"]
 timeLock = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
 timeInput = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",]
 
+// Creation of HTML elements
 for (var i = 0; i < timeSlot.length; i++) {
 
     var scheduleSlot = timeSlot[i];
@@ -58,6 +51,7 @@ for (var i = 0; i < timeSlot.length; i++) {
 
 };
 
+// Task object storage
 var tasks = {
     at7: "",
     at8: "",
@@ -72,6 +66,7 @@ var tasks = {
     at17: "",
 };
 
+// Save click event delegation and data storage
 $(".btn").on("click", function (e) {
 
     if (e.target.matches("#a")) {
@@ -121,6 +116,7 @@ $(".btn").on("click", function (e) {
 
 });
 
+// Function for pushing data from local storage
 function getSchedule() {
 
     if (tasks.at7 === "") {
@@ -168,9 +164,25 @@ function getSchedule() {
         $("#17").attr("placeholder", tasks.at17)
     }
 
-
-
 };
 getSchedule();
+
+        // For later deveopment -- for loop all the button handling
+        // $(".btn").on("click", function (e) {
+        //     for (var i = 0; i < 18; i++) {
+
+        //         var scheduleSlot = timeSlot[i];
+        //         var scheduleLock = timeLock[i];
+        //         var scheduleInput = timeInput[i];
+        //         var scheduleTasks = tasks[i];
+
+        //         if (e.target.matches(timeInput[i])) {
+        //             scheduleTasks = $(scheduleLock).val().trim();
+        //             localStorage.setItem("7AM", JSON.stringify(tasks.at7));
+
+        //         };
+
+        //     };
+        // });
 
 
