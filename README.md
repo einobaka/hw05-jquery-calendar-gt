@@ -7,3 +7,14 @@ Devnotes: When the page is index is opened, it presents the user with color matc
 
 Screenshots of each phases:
 
+When the page is opened:
+
+![Freshly Opened Page](https://github.com/einobaka/hw05-jquery-calendar-gt/blob/master/Assets/correspondingtime.png)
+
+When user makes the entries:
+
+![Freshly Opened Page](https://github.com/einobaka/hw05-jquery-calendar-gt/blob/master/Assets/tasksavelocal.png)
+
+When user makes chooses to save and refresh the page:
+
+![Freshly Opened Page](https://github.com/einobaka/hw05-jquery-calendar-gt/blob/master/Assets/localstoragerecall.png)
