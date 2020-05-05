@@ -28,43 +28,52 @@ for (var i = 0; i < timeSlot.length; i++) {
     var scheduleSlot = timeSlot[i];
     var scheduleLock = timeLock[i];
     var li = $("<li>");
+    var divCol = $("<div>");
+    var divColNext = $("<div>");
 
     // List attributes
-    $(li).attr("class", "text-left list-group-item list-group-item-action list-group-item-dark border border-dark").attr("id", scheduleLock)
-    $(li).text(scheduleSlot + " ");
+    $(li).attr("class", "row text-left list-group-item list-group-item-action list-group-item-dark border border-dark").attr("id", scheduleLock)
+    $(li).append(divCol);
+    $(divCol).attr("class", "col-sm").text(scheduleSlot);
     // $(li).append(input).append(save);
 
     if (scheduleLock == timeNowin24) {
-        $(li).attr("class", "text-left list-group-item list-group-item-action list-group-item-success border border-dark")
+        $(li).attr("class", "row text-left list-group-item list-group-item-action list-group-item-success border border-dark")
     }
     else if (scheduleLock > timeNowin24) {
-        $(li).attr("class", "text-left list-group-item list-group-item-action list-group-item-warning border border-dark")
+        $(li).attr("class", "row text-left list-group-item list-group-item-action list-group-item-warning border border-dark")
     };
     $("#schedule").append(li);
 
 };
 
 // Variables for the button inputs
-var input = $("<input>").attr("id", "task").attr("placeholder", "What is your task?").attr("type", "text"); // .attr("class", "input-group")
-var save = $("<button>").attr("id", "save").attr("type", "submit");
+var userInput = "";
+var gather = $("<form>").attr("id", userInput);
+var input = $("<input>").attr("id", "task").attr("placeholder", "What is your task?").attr("type", "text").attr("value", ""); // .attr("class", "input-group")
+var save = $("<input>").attr("id", "save").attr("type", "submit");
 $(save).text("SAVE");
+
 
 $("li").on("click", function (e) {
     e.preventDefault();
     // console.log(e);
     if (e.target.matches(".list-group-item")) {
-        $(this).append(input).append(save);
+
+        $(this).append(divColNext);
+        $(divColNext).attr("class", "col-sm ")
+        $(divColNext).append(gather).append(input).append(save);
     }
     else if (e.target.matches("#save")) {
-        $(input).hide();
-        $(save).hide();
-        location.reload();
+        console.log(userInput);
+        //     $(input).hide();
+        //     $(save).hide();
+        //     location.reload();
     };
 
 });
 
-var task = input;
-console.log(task)
+console.log(userInput);
 
 // Testing logs
 // console.log(timeNowin24);
