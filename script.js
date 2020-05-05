@@ -29,12 +29,12 @@ for (var i = 0; i < timeSlot.length; i++) {
     var scheduleLock = timeLock[i];
     var li = $("<li>");
     var divCol = $("<div>");
-    var divColNext = $("<div>");
+    var divColNext = $("<span>");
 
     // List attributes
     $(li).attr("class", "row text-left list-group-item list-group-item-action list-group-item-dark border border-dark").attr("id", scheduleLock)
     $(li).append(divCol);
-    $(divCol).attr("class", "col-sm").text(scheduleSlot);
+    $(divCol).attr("class", "col-sm").text(scheduleSlot).attr("id", scheduleSlot);
     // $(li).append(input).append(save);
 
     if (scheduleLock == timeNowin24) {
@@ -49,37 +49,97 @@ for (var i = 0; i < timeSlot.length; i++) {
 
 // Variables for the button inputs
 
-var gather = $("<form>").attr("id", "notsure");
+var gather = $("<form>").attr("id", "gatherInput");
 var userInput = $("<input>").attr("id", "theTask").attr("placeholder", "What is your task?").attr("type", "text");
 var save = $("<input>").attr("id", "save").attr("type", "submit").attr("value", "SAVE");
 
-function showTask(){
-    localStorage.setItem("userTask", JSON.stringify(taskValue));
-};
+var task = { value: "" };
 
+// var listID = document.getElementsByTagName("li");
 
-$("li").on("click", function (e) {
+$("div").on("click", function (e) {
     e.preventDefault();
-    // console.log(e);
+    console.log(e);
 
-    if (e.target.matches(".list-group-item")) {
-
+    if (e.target.matches("#7AM")) {
+        $(userInput).show()
+        $(save).show();
         $(this).append(divColNext);
         $(divColNext).attr("class", "col-sm ")
         $(divColNext).append(gather)
         $(gather).append(userInput).append(save);
     }
-    if (e.target.matches("#save")) {
-        var taskValue = $("#theTask").val().trim();
-        console.log(taskValue);
 
-        //     $(input).hide();
-        //     $(save).hide();
-       
-    };
+    if (e.target.matches("#save")) {
+        task.value = $("#theTask").val().trim();
+        console.log(task.value);
+        $(divColNext).text(task.value);
+        // $(this).append(task);
+        // localStorage.setItem("7AM", JSON.stringify(task.value));
+        $(userInput).hide().empty();
+        $(save).hide();
+    }
+
+    // if (time = "7AM") {
+    //     var time = $("li:contains(7AM)");
+
+    //     task.value = $("#theTask").val().trim();
+    //     console.log(task.value);
+    //     $(this).append(task);
+    //     localStorage.setItem("7AM", JSON.stringify(task.value));
+    //     $(userInput).hide().empty();
+    //     $(save).hide();
+    // }
+
+    // if (e.target.$("li:contains(8AM)")) {
+    //     task.value = $("#theTask").val().trim();
+    //     console.log(task.value);
+
+    //     localStorage.setItem("8AM", JSON.stringify(task.value));
+    //     $(userInput).hide().empty();
+    //     $(save).hide();
+    // }
+
+    // if (e.target.matches(".list-group-item") && $("li:contains(7AM)")) {
+    //     $(this).append(divColNext);
+    //     $(divColNext).attr("class", "col-sm ")
+    //     $(divColNext).append(gather)
+    //     $(gather).append(userInput).append(save);
+
+    // }
+    // if ($("li:contains(8AM)")) {
+    //     localStorage.setItem("8AM", JSON.stringify(task.value));
+    // }
+    // if (e.target == $("#9")) {
+    //     localStorage.setItem("9AM", JSON.stringify(task.value));
+    // }
+    // if (e.target == $("#10")) {
+    //     localStorage.setItem("10AM", JSON.stringify(task.value));
+    // }
+    // if (e.target == $("#11")) {
+    //     localStorage.setItem("11AM", JSON.stringify(task.value));
+    // }
+    // if (e.target == $("#12")) {
+    //     localStorage.setItem("12AM", JSON.stringify(task.value));
+    // }
+    // if (e.target == $("#1")) {
+    //     localStorage.setItem("1PM", JSON.stringify(task.value));
+    // }
+    // if (e.target == $("#2")) {
+    //     localStorage.setItem("2PM", JSON.stringify(task.value));
+    // }
+    // if (e.target == $("#3")) {
+    //     localStorage.setItem("3PM", JSON.stringify(task.value));
+    // }
+    // if (e.target == $("#4")) {
+    //     localStorage.setItem("4PM", JSON.stringify(task.value));
+    // }
+    // if (e.target == $("#5")) {
+    //     localStorage.setItem("5PM", JSON.stringify(task.value));
+    // }
+
 
 });
-
 
 
 // Testing logs
