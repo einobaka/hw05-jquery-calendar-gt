@@ -16,10 +16,8 @@ var timeNowin12 = moment().format('h');
 // Time now in 24 hr format
 var timeNowin24 = moment().format('k');
 
-// Test variable
+// Test variable for when real time is not in sync to demo the list color coordination
 // var timeNowin24 = 9;
-console.log(timeNowin24);
-// console.log(timeNowin12);
 
 // List of schedule slots
 timeSlot = ["7AM", "8AM ", "9AM", "10AM", "11AM", "12PM", "1PM ", "2PM ", "3PM ", "4PM ", "5PM "]
@@ -30,9 +28,6 @@ for (var i = 0; i < timeSlot.length; i++) {
     var scheduleSlot = timeSlot[i];
     var scheduleLock = timeLock[i];
     var li = $("<li>");
-    var input = $("<input>").attr("id", "task");
-    var save = $("<button>").attr("id", "save");
-    $(save).text("SAVE");
 
     // List attributes
     $(li).attr("class", "text-left list-group-item list-group-item-action list-group-item-dark border border-dark").attr("id", scheduleLock)
@@ -49,39 +44,32 @@ for (var i = 0; i < timeSlot.length; i++) {
 
 };
 
-// var inPlace = $("<input>")
-// var inSave = $("<button>")
-// $("#input").append(inPlace);
-// $("#save").append(inSave);
-// $(inSave).text("SAVE");
-
-// $("#list").on("click", function () {
-//     function listIt() {
-//         $(this).append("<span>");
-//         $("span").attr("id", "task");
-//         $("#task").append(input).append(save);
-//     };
-//     listIt()
-// });
+// Variables for the button inputs
+var input = $("<input>").attr("id", "task").attr("placeholder", "What is your task?").attr("type", "text"); // .attr("class", "input-group")
+var save = $("<button>").attr("id", "save").attr("type", "submit");
+$(save).text("SAVE");
 
 $("li").on("click", function (e) {
     e.preventDefault();
-    console.log(e)
+    // console.log(e);
     if (e.target.matches(".list-group-item")) {
         $(this).append(input).append(save);
+    }
+    else if (e.target.matches("#save")) {
+        $(input).hide();
+        $(save).hide();
+        location.reload();
     };
 
 });
 
+var task = input;
+console.log(task)
 
-// $("li").on("click", function (e) {
-//     e.preventDefault();
-//     console.log(e);
-//     input.show();
-//     save.show();
-// });
-
-console.log(scheduleSlot);
+// Testing logs
+// console.log(timeNowin24);
+// console.log(timeNowin12);
+// console.log(scheduleSlot);
 // console.log($(".container"))
 // console.log(period);
 
